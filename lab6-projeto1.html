@@ -1,0 +1,104 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-simple&code=nVTNbhNBDL73KSwhtKkIYbNJmh8EUik_QgIJ0Qjx14OzO00HZtar2VlIQX2YigPi0Bfgui-GvTvZFIQ4kEO8Y3s-25_tuXMHHmJGJaiNd1hfyWdGkKHHUnko0CEQFMrVV8T6koxOtecb0Evi4QEgJHEy2d9LKS89YM7X78G7SGxRH0ROg5wFOW9lEgc5DDIJchTkOMhJdHI3wKdn1SdckkcjQZL5ZBD3IRkOB5M-TA_Gg1kfxvPpYN6HyXw4GPVhNJuJbT6aDQ7YdjARMZrOBgm7JGxj6D0qvKacEb_uATAfy_rKV4aYEb3WXGjO9Tv6oDyx3Wtv1KJx5QOTtoDoFZnKKshUmyBgWtnKYIZQkBNOfufqff4Yv6iczUfocqx_rhBuwxKZZKov-fPFg6jf4Bt1Kvipyr1yQeepYNXkZsSnC1G1ST8yyrIbd07BU3HH-nv9jWC4gCWR8bqQ5NuvLn2n12vlGA43ugz48vmCtEBs_djzvOCio_KMG_9ZIofYAJ_QVOoxOYu-udFrFPtw735rglsQgbUh2zbXww9V6ZkvhPrSKZR5W7v68lSnzLQMXIYOVFlwCQRI4LcNkcMXIsswa6ezro6GkiS-GUpYkfdkWTXsaPo3SckC3jIs9I6NzpQDnZ8qp7l3Co5TR8ZIipaqUu0zkOyGuC_gXRPuT5IajJAKQHlGnxdMdaW2ms0hU_w0z9SGEeKTztGj427H2zNPyAKGcXyd7T9C6bzkWF2o_wLmf_YM_OgNwWvoLZUtSEptEDua26AperUmdx7CChuLZvHbc45WvA5zCg6ieEZ8i5eMDVZnmdnmLLYnyN0bSTa7Pkkeb6DXLpYkcv6XRJr5uga028SetfvbcTZ6nS91-pFvSxOuhzmufzjd7G0mTyArS267Ys_fGxvAj2S5O7Lbuncv0lYfklshj4AEeY65l1ckJXttzDkmezgs24G3ypzxuLGPHNuhxLxCE0ANrpTZrePfpgr4sSl1IJk3oksU4HS3ntHX9KLd326mALRX9tif7941-aVkSC7cmIyn8RE_5p1lRY4H_CVmuhKqxvyw9nm6ID7ZAu8ma-_i7i8&enc=deflate
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+const anos = ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+const chuvaTotal = [295.0, 211.5, 764.8, 497.9, 591.3, 388.5, 938.6, 465.6, 378.2, 528.5];
+
+option = {
+  title: {
+    text: 'Volume de chuva acumulada por ano (2016 a 2025)\nFazenda Carnaúba - Taperoá - PB',
+    left: 'center',
+    top: '5%'
+  },
+  
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    },
+    valueFormatter: (value) => value + ' mm'
+  },
+
+  grid: {
+    top: '20%',
+    bottom: '15%'
+  },
+
+  dataZoom: [
+    {
+      type: 'slider',
+      show: true,
+      xAxisIndex: [0],
+      start: 0,
+      end: 100
+    },
+    {
+      type: 'inside',
+      xAxisIndex: [0],
+      start: 0,
+      end: 100
+    }
+  ],
+
+  xAxis: {
+    type: 'category',
+    data: anos,
+    name: 'Ano',
+    nameLocation: 'middle',
+    nameGap: 30
+  },
+
+  yAxis: {
+    type: 'value',
+    name: 'Volume (mm)',
+    alignTicks: true
+  },
+
+  series: [
+    {
+      name: 'Chuva',
+      data: chuvaTotal,
+      type: 'bar', 
+      label: {
+        show: true,
+        position: 'top',
+        formatter: '{c}'
+      },
+      itemStyle: {
+        color: '#5470C6',
+        borderRadius: [4, 4, 0, 0]
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

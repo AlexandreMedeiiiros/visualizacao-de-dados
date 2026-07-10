@@ -1,0 +1,131 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-smooth&code=jVbNbhs3EL77KQZJCkmILevHv7Kjwk2TIkACBI1RtHUNhNqlJKa7S5XcVWQbepi0hyKHnIpeetWL9RuSu1rJaRHBMJdDcjjzzTcz3N-nSyMyO9YmFas_V39oirWlWPB_OZZ5IWJBzYtM0wW-E9oj953l0ihtWjuRzmxOIsP2J3TV6HW6R41d4vE4jCdhPPVjrxPGbhh7YeyH8SCMh43rs6B-LowSkZbujr3Tbvt4l_ZO-u3DXTo87Lf7mPWOjtqnu3Tabx_wrNNrn_Bip93F9OC43-7wkWNe7ULah-4dPcuVzqDzboeIkVh9yotEkx6rSMHXWNPM6Hcy11jPVZ7IgduKiVzkA2r8wHYF1ARF02IuSERFWiSM2kwbBoaaDAoJYp9av2TPxa3MsPxUmEys_hkJYHopZtLo1Qd8vv6msevuSOSY74gkYx1kuZ5B1PuqnMKMN_nN2i6isc7yN-oWku6REy3xf8nbvY_PEplCIwyW9II1B_u7A7rUOsnVjKLC5jpVt-AARTolqzKRuKnhUy4Y7hCj4s9UuBg1mUgDG8VC2WAlf77Wii9b25nfzGBjw06h9n2DLbt4VwCVTNBcWTANF3rLZFpGwYAAsbS5iEQG24C4TgocELmaC--sv9GxOXf3jYssclFuzoQRqW1VFpTUSkAAv3bVuW5jXsizjS3Of2zirUPq0NfUeNwgGN8o9xnkicno7floiOwY0KO7tcJMpHJ5vj8ano_M_jAcKH9rAg3o3M5ERpbD-eQBh3HvvVSTaT4Y6SQ-ezB8dOcMWT66gyHtXD9XCxk3u60lpen5Ph8evvUGhZD7gANWm0vm8sSo2HkKjupUx8IQstbKpIKWftaIt6TnKsmNRiwsjbSJhYUqPl2F2dGwe1LycKRzMIZFh6UosLfbKQVgBnyBBOyt2_dMLTT9SM1LmSJhRNKCeHEBylSXeaZEIpcTbW6CuljkYuDqjp8zzNgF-MMGFrzUOIXgYyFVcZzI2tp3Aj70O2uKXqroV9xJdqrfgzcisXITSWfpT9R8tfoInkeCfitEhrLg6LeZGezEzWeccOyqGbFZQ5pp2gqLdpao_KXKapmdYLaV7JVehGgqY5dGODRF3GDOxAj8j5WNwE-IfOhnWiGtFWrA6hPqHCdxyZkt5pSlwimr14oeKNIfbJGFq91YqEVAImFKQQ_HiTcO6MrdsJ3_iYq5uvF9T8F5oxNB2queaqNuIUPaNeH8FJo1Sh5owvA6lFyoclNIj1pgzosslgtc2LkuxagZBuQL0SZCAUaB7FTzisCenFUh-TJrAwJzaXLQwlmbghamhIHS1adMpdrup6sPC_64z5bPu-M4dN-dkFynVSP4bw__xxuVWbjjvbkAylMEkSlyy-AXNtRYg0LBwKe6QEI0QSadJC2yemQkfJ-Y1Ycajbbwr0gF0z2p3qw-GuWLzbf-kWHhMMonOiYmPFWu2WCmsljNVYxmwDyUUGDx6pBIqk0u3c-kiwyHKmyCvyNRtlFnySv0XBx0vVBlq99TeFHmSII4GpR_Dp4Eta2C3r-92Wb1F78SLHcHbjSMggt0UO0rU_Vkaadi1nRdZljL29Ax1gJiHQXMxFAayT8Fwt_L-uDB07IjWlEDMJETlCUseF_SEee6N9310bJ1r39ooxqt0vW3J77BPeyPRO-459rcQymP8ANRNk5xZ5DmexGrAhGpHb7CGwt_eHB1rnH-ij-c5MDzIRScupeJGMlk28P76VB5_myO_PIcDMFB0NkN_zLgdxECJCKVgrvcxYQxXAGxl4s14yRGKFb8brOUATEn3rjGb-bmUQcGrc-B4ivGNia1h8fma-Exz2tNGyo2BZsu1l5x3Tpm1feyfHosffFwObazPPsX&enc=deflate
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+const anos = ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+const variacoes = [-91.7, -83.5, 553.3, -266.9, 93.4, -202.8, 550.1, -473.0, -87.4, 150.3];
+
+option = {
+  title: {
+    text: 'Variação da chuva acumulada por ano (2016 a 2025)\nFazenda Carnaúba - Taperoá - PB',
+    left: 'center',
+    top: '2%',
+    textStyle: {
+      fontSize: 16
+    }
+  },
+  
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow' 
+    },
+    formatter: function (params) {
+      const val = params[0].value;
+      const sinal = val > 0 ? '+' : '';
+      return `<b>Ano: ${params[0].name}</b><br/>
+              Variação: <span style="font-weight:bold;">${sinal}${val.toFixed(1)} mm</span>`;
+    }
+  },
+
+  grid: {
+    top: '18%',
+    bottom: '15%',
+    left: '10%',
+    right: '12%'
+  },
+
+  xAxis: {
+    type: 'category',
+    data: anos,
+    name: 'Ano',
+    nameLocation: 'middle',
+    nameGap: 30,
+    axisTick: { show: false }
+  },
+
+  yAxis: {
+    type: 'value',
+    name: 'Variação (mm)',
+    splitLine: {
+      lineStyle: {
+        type: 'dashed' 
+      }
+    }
+  },
+
+  dataZoom: [
+    {
+      type: 'slider', 
+      show: true,
+      xAxisIndex: [0],
+      start: 0,
+      end: 100,
+      bottom: '2%'
+    },
+    {
+      type: 'slider', 
+      show: true,
+      yAxisIndex: [0],
+      left: '92%',
+      start: 0,
+      end: 100
+    },
+    {
+      type: 'inside', 
+      xAxisIndex: [0]
+    }
+  ],
+
+  series: [
+    {
+      name: 'Variação Anual',
+      type: 'bar',
+      data: variacoes.map(val => {
+        return {
+          value: val,
+          itemStyle: {
+            color: val >= 0 ? '#3ba272' : '#ee6666', 
+            borderRadius: val >= 0 ? [4, 4, 0, 0] : [0, 0, 4, 4]
+          },
+          label: {
+            show: true,
+            position: val >= 0 ? 'top' : 'bottom', 
+            formatter: val > 0 ? '+' + val.toFixed(1) : val.toFixed(1),
+            fontSize: 11
+          }
+        };
+      })
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
